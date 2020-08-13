@@ -113,13 +113,13 @@ console.log(getLastReview(reviews));
 
  function getReviewByRating(array,num) {
     for(let i = 0; i < array.length; i++){
-      if(array[i].rating === num){
+      if(array[i].rating === num || array[i].rating > num && array[i].rating < num+1){
         byRating.unshift(array[i]);
       }
     }
     console.log(byRating);
   }
- getReviewByRating(reviews,3);
+ getReviewByRating(reviews,4);
 
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
@@ -141,7 +141,7 @@ and should return an array of objects.
     for(let i = 0; i < array.length; i++){
       let wordCount = array[i].feedback.split(" ").length;
       if(wordCount > 14){
-        longReviews.unshift(reviews[i]);
+        longReviews.unshift(array[i]);
       }
     }
     console.log(longReviews);
